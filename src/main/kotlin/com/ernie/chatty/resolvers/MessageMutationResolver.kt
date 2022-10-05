@@ -12,8 +12,8 @@ import java.util.*
 
 @Component
 class MessageMutationResolver(private val messageRepository: MessageRepository) : GraphQLMutationResolver {
-    fun newMessage(sender: String, parentMessageId: String? = "", content: String): Message {
-        val message = Message(sender, parentMessageId, content, LocalDateTime.now().toString())
+    fun newMessage(sender: String, parentMessageId: String? = "", subject: String? = "", content: String): Message {
+        val message = Message(sender, parentMessageId, subject, content, LocalDateTime.now().toString())
         message.id = UUID.randomUUID().toString()
         messageRepository.save(message)
         return message

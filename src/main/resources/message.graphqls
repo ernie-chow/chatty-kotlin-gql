@@ -5,17 +5,18 @@ type Query {
 
 type Message {
     id: ID!
-    sender: String
+    sender: String!
     parentMessageId: String
-    content: String
-    timeStamp: String
-    likes: Int
-    dislikes: Int
-    replies: [Message]
+    subject: String
+    content: String!
+    timeStamp: String!
+    likes: Int!
+    dislikes: Int!
+    replies: [Message!]
 }
 
 type Mutation {
-    newMessage(sender: String!, parentMessageId: String, content: String!) : Message!
+    newMessage(sender: String!, parentMessageId: String, subject: String, content: String!) : Message!
     deleteMessage(id: ID!) : Boolean
     likeMessage(id: ID!) : Message!
     dislikeMessage(id: ID!) : Message!

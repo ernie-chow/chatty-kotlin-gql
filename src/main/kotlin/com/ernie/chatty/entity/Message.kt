@@ -8,6 +8,7 @@ import java.time.LocalDateTime
 data class Message(
     var sender: String,
     var parentMessageId: String?,
+    var subject: String?,
     var content: String,
     var timeStamp: String,
     var likes: Int = 0,
